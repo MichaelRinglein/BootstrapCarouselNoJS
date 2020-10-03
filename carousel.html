@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+  .carousel-item {
+	background-color: #8e8e8e;
+  }
+  </style>
+</head>
+<body>
+
+<div id="demo" class="carousel slide">
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+	  <p class="text-center" style="color: white;">Slide 1</p>
+    </div>
+    <div class="carousel-item">
+      <p class="text-center" style="color: white;">Slide 2</p>    
+	</div>
+    <div class="carousel-item">
+	  <p class="text-center"style="color: white;">Slide 3</p>    
+	</div>
+  </div>
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" onclick="prevSlide()">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" onclick="nextSlide()">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+<script>
+function prevSlide(){
+	currentSlide = currentSlide-1;
+	goToSlide(currentSlide);
+
+}
+function nextSlide() {
+	currentSlide = currentSlide+1;
+	goToSlide(currentSlide);
+}
+
+var currentSlide = 0;
+function goToSlide(n) {
+	var slides = document.getElementsByClassName('carousel-item');
+
+	for(var i = 0; i < slides.length; i++) {
+		slides[i].classList.remove('active');
+	}
+	
+	currentSlide = (n+slides.length)%slides.length;	
+	slides[currentSlide].classList.add('active');
+}
+</script>
+</body>
+</html>
+
+
